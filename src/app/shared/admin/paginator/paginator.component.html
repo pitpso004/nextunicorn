@@ -1,0 +1,16 @@
+<div class="row" style="margin-top: 1rem;">
+    <div class="col-sm-5">
+        {{'SHOWING' | translate}} {{ getShowing() }} {{'TO'| translate}} {{ lastItemInpage }} {{'OF' | translate}} {{ page.totalItemCount }} {{'ITEMS' | translate}}.
+    </div>
+    <div class="col-sm-7">
+        <ul class="pagination pagination-sm pagination-inverse m-t-0 justify-content-end">
+            <li [class.disabled]="page.pageNumber==1" (click)="setPagination('first', page.pageNumber, page.pageCount)"><a href="javascript:;"><i class="fa fa-angle-double-left"></i></a></li>
+            <li [class.disabled]="page.pageNumber==1" (click)="setPagination('prev', page.pageNumber, page.pageCount)"><a href="javascript:;"><i class="fa fa-angle-left"></i></a></li>
+            <li [class.active]="pgp.active" (click)="goPageObj(pgp)" *ngFor="let pgp of pageList"><a href="javascript:;">{{pgp.num }}</a></li>
+            <li [class.disabled]="page.pageNumber>=page.pageCount" (click)="setPagination('next', page.pageNumber, page.pageCount)"><a href="javascript:;"><i
+            class="fa fa-angle-right"></i></a></li>
+            <li [class.disabled]="page.pageNumber>=page.pageCount" (click)="setPagination('last', page.pageNumber, page.pageCount)"><a href="javascript:;"><i
+            class="fa fa-angle-double-right"></i></a></li>
+        </ul>
+    </div>
+</div>

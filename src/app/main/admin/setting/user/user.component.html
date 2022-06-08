@@ -1,0 +1,80 @@
+<!-- content-header component -->
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">{{ 'MENU.SETTING.USER' | translate }}</h2>
+
+                <div class="breadcrumb-wrapper float-right">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">{{ 'MENU.HOME' | translate }}</a></li>
+                        <li class="breadcrumb-item"><span>{{ 'MENU.SETTING.USER_LIST' | translate }}</span></li>
+
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="table-form">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title text-white">{{ 'MENU.SETTING.USER_LIST' | translate }}</h3>
+                </div>
+                <div class="card-body card-body-custom">
+
+                    <div class="table-responsive tableFixHead">
+                        <table class="table table-bordered">
+                            <thead class="color-bk-main">
+                                <tr align="center" class="text-white">
+                                    <th nowrap="" style="width: 5%;">{{ 'NO' | translate}}</th>
+                                    <th nowrap="" style="width: 5%;">{{ 'ACTION' | translate}}</th>
+                                    <th nowrap="" style="width: 90%;">{{ 'USERNAME' | translate}}</th>
+
+                                </tr>
+                            </thead>
+                            <thead class="top-search">
+                                <tr align="center">
+                                    <th></th>
+                                    <th></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'USERNAME' | translate" /></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td nowrap="">1</td>
+                                    <td nowrap="" class="text-center">
+                                        <div class="i-table-ac">
+                                            <ng-container>
+                                                <a href="javascript:;" (click)="onClickView()"><i class="fa fa-fw fa-eye"></i></a>
+                                            </ng-container>
+                                            <ng-container>
+                                                <a href="javascript:;" (click)="onClickEdit()"><i
+                                                    class="fa fa-fw fa-edit text-warning"></i></a>
+                                            </ng-container>
+                                            <ng-container>
+                                                <a href="javascript:;" (click)="onDeleteClick()"><i
+                                                    class="fa fa-fw fa-trash text-danger"></i></a>
+                                            </ng-container>
+                                        </div>
+
+                                    </td>
+                                    <td nowrap="">admin01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <app-admin-table-paginator #pagination (onPageChange)="onPageChange($event)" (onPageSizeChange)="onPageSizeChange($event)"></app-admin-table-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

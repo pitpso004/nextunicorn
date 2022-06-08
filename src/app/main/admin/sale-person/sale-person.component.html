@@ -1,0 +1,129 @@
+<!-- content-header component -->
+<div class="content-header row">
+    <div class="content-header-left col-md-12 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">{{ 'MENU.SALE_PERSON.SALE_PERSON' | translate }}</h2>
+
+                <div class="breadcrumb-wrapper float-right">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">{{ 'MENU.HOME' | translate }}</a></li>
+                        <li class="breadcrumb-item">{{ 'MENU.SALE_PERSON.SALE_PERSON' | translate }}</li>
+                        <li class="breadcrumb-item active">{{ 'MENU.SALE_PERSON.LIST_CUSTOMER' | translate }}</li>
+
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section id="table-form">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title text-white">{{ 'MENU.SALE_PERSON.LIST_CUSTOMER' | translate }}</h3>
+
+                    <a href="javascript:;">
+                        <i class="fa fa-repeat text-white" style="cursor: pointer;" (click)="loadDataList()"></i>></a>
+
+                </div>
+                <div class="card-body card-body-custom">
+                    <div class="row mb-1">
+                        <div class="col-md-9 col-xs-3 ">
+
+                        </div>
+                        <div class="col-md-3 col-xs-9 text-right ">
+
+                            <a class="btn btn-main-color text-white" (click)="onClickCreate()"><i
+                                class="fa fa-plus"></i>
+                              {{'CREATE' | translate}}</a>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="color-bk-main">
+                                <tr align="center">
+                                    <th nowrap="" style="width: 5%;">{{ 'NO' | translate}}</th>
+                                    <th nowrap="" style="width: 5%;">{{ 'ACTION' | translate}}</th>
+                                    <th nowrap="" style="width: 10%;">{{ 'STATUS' | translate}}</th>
+                                    <th nowrap="" style="min-width: 120px;">{{ 'FIRST_NAME' | translate}}</th>
+                                    <th nowrap="" style="min-width: 120px;">{{ 'LAST_NAME' | translate}}</th>
+                                    <th nowrap="" style="min-width: 90px;">{{ 'PHONENUMBER' | translate}}</th>
+                                    <th nowrap="" style="min-width: 150px;;">{{ 'ADDRESS' | translate}}</th>
+                                    <th nowrap="" style="min-width: 50px;">{{ 'ZIP_CODE' | translate}}</th>
+                                    <th nowrap="" style="min-width: 120px;">{{ 'PRODUCT_CODE' | translate}}</th>
+                                    <th nowrap="" style="min-width: 120px;;">{{ 'PRODUCT' | translate}}</th>
+                                    <th nowrap="" style="min-width: 50px;">{{ 'AMOUNT' | translate}}</th>
+                                    <th nowrap="" style="min-width: 50px;">{{ 'KEEP_DESTINATION' | translate}}</th>
+                                    <th nowrap="" style="min-width: 100px;">{{ 'CATEGOTY' | translate}}</th>
+
+
+                                </tr>
+                            </thead>
+                            <thead class="top-search">
+                                <tr align="center">
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'FIRST_NAME' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'LAST_NAME' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'PHONENUMBER' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'ADDRESS' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'ZIP_CODE' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'PRODUCT_CODE' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'PRODUCT' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'AMOUNT' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'KEEP_DESTINATION' | translate" /></th>
+                                    <th><input class="form-control form-control-sm" type="text" [placeholder]="'CATEGOTY' | translate" /></th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td nowrap="">1</td>
+                                    <td nowrap="" class="text-center">
+                                        <div class="i-table-ac">
+                                            <ng-container>
+                                                <a href="javascript:;" (click)="onClickView()"><i class="fa fa-fw fa-eye"></i></a>
+                                            </ng-container>
+                                            <ng-container>
+                                                <a href="javascript:;" (click)="onClickEdit()"><i
+                                                    class="fa fa-fw fa-edit text-warning"></i></a>
+                                            </ng-container>
+                                            <ng-container>
+                                                <a href="javascript:;" (click)="onDeleteClick()"><i
+                                                    class="fa fa-fw fa-trash text-danger"></i></a>
+                                            </ng-container>
+                                        </div>
+
+                                    </td>
+                                    <td nowrap=""></td>
+                                    <td nowrap="">สมชาย</td>
+                                    <td nowrap="">ยอดชาย</td>
+                                    <td nowrap="" class="text-center">1234567890</td>
+                                    <td nowrap="">12/2 ม.4 ต.x อ.y จ.z</td>
+                                    <td nowrap="" class="text-center">1234</td>
+                                    <td nowrap="" class="text-center">001</td>
+                                    <td nowrap="">แก้วน้ำ</td>
+                                    <td nowrap="" class="text-center">1</td>
+                                    <td nowrap="" class="text-center">120</td>
+                                    <td nowrap="" class="text-center">พร้อมส่ง</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <app-admin-table-paginator #pagination (onPageChange)="onPageChange($event)" (onPageSizeChange)="onPageSizeChange($event)"></app-admin-table-paginator>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

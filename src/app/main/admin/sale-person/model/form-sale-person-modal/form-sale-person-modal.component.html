@@ -1,0 +1,129 @@
+<div class="modal-header main-bk-color justify-content-start">
+    <h4 class="modal-title text-white mb-0">{{ 'MENU.SALE_PERSON.FORM_LIST_CUSTOMER' | translate}}</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'FIRST_NAME' |
+                translate}}</label>
+                    <input type="text" class="form-control" [placeholder]="'FIRST_NAME' | translate" formControlName="firstName" maxlength="200" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+                    <label class="max-character-length" [ngClass]="{'text-danger': form.value.firstName?.length >= 200}">{{form.value.firstName?.length == null ? 0 :
+                form.value.firstName?.length}} / 200</label>
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'LAST_NAME' |
+                translate}}</label>
+                    <input type="text" class="form-control" [placeholder]="'LAST_NAME' | translate" formControlName="lastName" maxlength="200" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                    <label class="max-character-length" [ngClass]="{'text-danger': form.value.lastName?.length >= 200}">{{form.value.lastName?.length == null ? 0 :
+                form.value.lastName?.length}} / 200</label>
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'PHONENUMBER' |
+                translate}}</label>
+                    <input type="text" class="form-control" [placeholder]="'PHONENUMBER' | translate" formControlName="phoneNumber" maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }">
+                    <label class="max-character-length" [ngClass]="{'text-danger': form.value.phoneNumber?.length >= 10}">{{form.value.phoneNumber?.length == null ? 0 :
+                form.value.phoneNumber?.length}} / 10</label>
+                    <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.phoneNumber.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'ZIP_CODE' |
+                translate}}</label>
+                    <input type="text" class="form-control" [placeholder]="'ZIP_CODE' | translate" formControlName="zipCode" maxlength="6" [ngClass]="{ 'is-invalid': submitted && f.zipCode.errors }">
+                    <label class="max-character-length" [ngClass]="{'text-danger': form.value.zipCode?.length >= 6}">{{form.value.zipCode?.length == null ? 0 :
+                form.value.zipCode?.length}} / 6</label>
+                    <div *ngIf="submitted && f.zipCode.errors" class="invalid-feedback">
+                        <div *ngIf="f.zipCode.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mb-0">
+            <span class="text-danger">*</span> <label for="message-text" class="col-form-label">{{ 'ADDRESS' | translate}}</label>
+            <textarea class="form-control" [placeholder]="'ADDRESS' | translate" rows="5" maxlength="4000" class="form-control" formControlName="address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+            <label class="max-character-length" [ngClass]="{'text-danger': form.value.address?.length >= 4000}">{{form.value.address?.length == null ? 0 :
+                form.value.address?.length}} / 4000</label>
+            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'PRODUCT' |
+                translate}}</label>
+                    <ngx-select [ngClass]="{ 'is-invalid': submitted && f.product.errors }" [items]="productList" formControlName="product" optionValueField="id" optionTextField="nameThai" (select)="onProductSelect($event)"></ngx-select>
+                    <div *ngIf="submitted && f.product.errors" class="invalid-feedback">
+                        <div *ngIf="f.product.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'AMOUNT' |
+                translate}}</label>
+                    <input type="text" class="form-control" [placeholder]="'AMOUNT' | translate" formControlName="amount" maxlength="200" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }">
+                    <label class="max-character-length" [ngClass]="{'text-danger': form.value.amount?.length >= 200}">{{form.value.amount?.length == null ? 0 :
+                form.value.amount?.length}} / 200</label>
+                    <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                        <div *ngIf="f.amount.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'CATEGOTY' |
+                translate}}</label>
+                    <select class="form-control" formControlName="category" [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+                    <option [value]="0">-- {{ 'PLEASE_SELECT' | translate }} --</option>
+                    <option [value]="item.id" *ngFor="let item of categotyList">
+                        <span >{{item.nameThai}}</span>
+                        <!-- <span *ngIf="lang == 'EN'">{{item.nameEN}}</span> -->
+                    </option>
+                </select>
+                    <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                        <div *ngIf="f.category.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group mb-0">
+                    <span class="text-danger">*</span> <label for="modal-name" class="col-form-label"> {{ 'KEEP_DESTINATION' |
+                translate}}</label>
+                    <input type="text" class="form-control" [placeholder]="'KEEP_DESTINATION' | translate" formControlName="keepDestination" maxlength="200" [ngClass]="{ 'is-invalid': submitted && f.keepDestination.errors }">
+                    <label class="max-character-length" [ngClass]="{'text-danger': form.value.keepDestination?.length >= 200}">{{form.value.keepDestination?.length == null ? 0 :
+                form.value.keepDestination?.length}} / 200</label>
+                    <div *ngIf="submitted && f.keepDestination.errors" class="invalid-feedback">
+                        <div *ngIf="f.keepDestination.errors.required" [translate]="'REQUIRED.FORM.REQUIRED'"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="onClose()">{{ 'CLOSE' | translate}}</button>
+    <button type="button" class="btn btn-main-color" (click)="onSaveClick()">{{ 'SAVE' | translate}}</button>
+</div>

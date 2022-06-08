@@ -1,0 +1,161 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+        "analytics": "256f734f-384f-44eb-8e04-c1cf979af60b"
+    },
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "next-unicorn": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "prefix": "app",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                },
+                "@schematics/angular:application": {
+                    "strict": true
+                }
+            },
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "allowedCommonJsDependencies": [
+                            "hammerjs",
+                            "node-waves",
+                            "app/main/ui/icons/feather/feather.component",
+                            "@angularclass/hmr",
+                            "ngx-quill",
+                            "lodash",
+                            "uuid",
+                            "nouislider",
+                            "dragula",
+                            "apexcharts",
+                            "chart.js",
+                            "contra/emitter",
+                            "crossvent",
+                            "highlight.js",
+                            "ng2-flatpickr"
+                        ],
+                        "outputPath": "dist/next-unicorn",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "inlineStyleLanguage": "scss",
+                        "assets": ["src/favicon.ico", "src/assets", "src/web.config"],
+                        "styles": [
+                            "src/styles.scss",
+                            "node_modules/highlight.js/scss/atom-one-dark.scss",
+                            "src/assets/fonts/feather/iconfont.css",
+                            "src/assets/fonts/font-awesome/css/font-awesome.min.css",
+                            "src/assets/fonts/flag-icon-css/css/flag-icon.min.css"
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["node_modules", "src/assets/"]
+                        },
+                        "scripts": ["./node_modules/katex/dist/katex.min.js", "./node_modules/quill/dist/quill.min.js"],
+                        "vendorChunk": true,
+                        "extractLicenses": false,
+                        "buildOptimizer": false,
+                        "sourceMap": true,
+                        "optimization": false,
+                        "namedChunks": true
+                    },
+                    "configurations": {
+                        "dev": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.dev.ts"
+                            }]
+                        },
+                        "uat": {
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "5mb",
+                                    "maximumError": "10mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "300kb",
+                                    "maximumError": "300kb"
+                                }
+                            ],
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.uat.ts"
+                            }],
+                            "outputHashing": "all"
+                        },
+                        "production": {
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "10mb",
+                                    "maximumError": "20mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "250kb",
+                                    "maximumError": "250kb"
+                                }
+                            ],
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": ""
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "next-unicorn:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "next-unicorn:build:production"
+                        },
+                        "hmr": {
+                            "hmr": true,
+                            "browserTarget": "next-unicorn:build:hmr"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "next-unicorn:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.spec.json",
+                        "karmaConfig": "src/karma.conf.js",
+                        "styles": ["src/styles.scss"],
+                        "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"],
+                        "assets": ["src/favicon.ico", "src/assets"]
+                    }
+                }
+            }
+        }
+
+    },
+    "defaultProject": "next-unicorn"
+
+}
